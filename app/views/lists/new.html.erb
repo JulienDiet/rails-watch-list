@@ -1,0 +1,12 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1536440136628-849c177e76a1?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450);"></div>
+<div class="container mt-3">
+  <div class="new-lists">
+    <div class="new-list">
+      <h1>Create a new <strong>list</strong> !</h1>
+      <%= simple_form_for(@list) do |f| %>
+        <%= f.input :name %>
+        <%= f.submit "Submit", class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>

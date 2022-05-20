@@ -1,0 +1,31 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1536440136628-849c177e76a1?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450);">
+  <div class="container">
+    <h1>Save any kind of <strong>movie</strong> !</h1>
+  </div>
+</div>
+
+<div class="container">
+<h3 class="mt-3"> List <%= @list.name %> </h3>
+<div class="d-flex justify-content-end">
+  <%= link_to 'Add a movie', new_list_bookmark_path(@list), class: "btn btn-danger"  %>
+  <%= button_to "Delete list",
+                        list_path(@list),
+                        method: :delete,
+                        data: { confirm: "Are you sure?" }, class: "btn btn-danger ml-3" %>
+
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+  <% @bookmarks.each do |bookmark| %>
+    <div class="col">
+      <div class="card">
+         <img src="https://image.tmdb.org/t/p/w500/<%= bookmark.movie.poster_url%>" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title"><strong><%= bookmark.movie.title %> • <%= bookmark.movie.rating %><i class="fas fa-star star-yellow"></i></strong></h5>
+          <p class="card-text"><%= bookmark.movie.overview %></p>
+          <h4><em>"<%= bookmark.comment %>"</em></h4>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
