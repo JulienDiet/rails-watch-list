@@ -23,7 +23,12 @@
         <div class="card-body">
           <h5 class="card-title"><strong><%= bookmark.movie.title %> • <%= bookmark.movie.rating %><i class="fas fa-star star-yellow"></i></strong></h5>
           <p class="card-text"><%= bookmark.movie.overview %></p>
+          <div class="d-flex">
           <h4><em>"<%= bookmark.comment %>"</em></h4>
+          <%= link_to bookmark_path(bookmark), method:"delete", data: { confirm: "Are you sure?" } do %>
+            <i class="fas fa-trash poubelle"></i>
+          <% end %>
+          </div>
         </div>
       </div>
     </div>
